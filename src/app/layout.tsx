@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Bebas_Neue, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { EmergencyCTA } from "@/components/EmergencyCTA";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const bebas = Bebas_Neue({
+  variable: "--font-bebas",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SCCS NWI | 24/7 Emergency Restoration",
     description:
-      "Family-owned restoration company serving NW Indiana since 2012. 24/7 emergency water, fire, mold remediation. Call now.",
+      "Family-owned restoration company serving NW Indiana since 2012.",
     url: "https://www.sccsnwi.com",
     siteName: "SCCS NWI",
     locale: "en_US",
@@ -37,19 +41,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    >
-      <body className="min-h-screen flex flex-col bg-warm-50 text-navy-950">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <EmergencyCTA />
+    <html lang="en" className={`${inter.variable} ${bebas.variable} ${geistMono.variable} antialiased`}>
+      <body className="min-h-screen flex flex-col bg-white text-navy-900 font-sans">
+        <main className="flex-1 overflow-x-hidden w-full max-w-full">{children}</main>
       </body>
     </html>
   );
