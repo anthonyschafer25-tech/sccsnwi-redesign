@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue, Geist_Mono } from "next/font/google";
+import { Inter, Outfit, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const bebas = Bebas_Neue({
-  variable: "--font-bebas",
+const outfit = Outfit({
+  variable: "--font-satoshi",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const geistMono = Geist_Mono({
@@ -43,8 +43,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebas.variable} ${geistMono.variable} antialiased`}>
-      <body className="min-h-screen flex flex-col bg-white text-navy-900 font-sans">
+    <html lang="en" className={`${inter.variable} ${outfit.variable} ${geistMono.variable} antialiased`}>
+      <body className="min-h-screen flex flex-col bg-white text-charcoal-900 font-sans">
         <main className="flex-1 overflow-x-hidden w-full max-w-full">{children}</main>
       </body>
     </html>

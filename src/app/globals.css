@@ -1,67 +1,62 @@
 @import "tailwindcss";
 
-/* ── v2 Brand Tokens (Pixler-inspired Navy + Gold) ── */
+/* ── v3 Modern Palette (Charcoal + SCCS Red + White) ── */
 @theme inline {
-  --color-navy-950: #061533;
-  --color-navy-900: #0a1f44;
-  --color-navy-800: #0e2a5c;
-  --color-navy-700: #123674;
-  --color-navy-600: #16428c;
+  --color-charcoal-950: #0d0d0f;
+  --color-charcoal-900: #1c1c1e;
+  --color-charcoal-800: #2c2c2e;
+  --color-charcoal-700: #3a3a3c;
+  --color-charcoal-600: #48484a;
 
-  --color-gold-500: #f5b800;
-  --color-gold-400: #f7c824;
-  --color-gold-300: #f9d44d;
+  --color-red-600: #c41e3a;
+  --color-red-500: #d42542;
+  --color-red-400: #e04a5e;
 
-  --color-warm-50: #faf9f6;
-  --color-warm-100: #f5f2ec;
-  --color-warm-200: #ede8dd;
+  --color-surface-50: #fafafa;
+  --color-surface-100: #f5f5f7;
+  --color-surface-200: #eeeef0;
 
-  --color-neutral-900: #1a1a1a;
-  --color-neutral-700: #4a4a4a;
-  --color-neutral-500: #7a7a7a;
-  --color-neutral-300: #b0b0b0;
-  --color-neutral-100: #e8e8e8;
-  --color-neutral-50: #f5f5f5;
-
-  --color-safety-500: #e8651a;
-  --color-safety-400: #f07530;
+  --color-neutral-900: #1d1d1f;
+  --color-neutral-700: #515154;
+  --color-neutral-500: #86868b;
+  --color-neutral-400: #aeaeb2;
+  --color-neutral-300: #c7c7cc;
+  --color-neutral-200: #dcdcde;
+  --color-neutral-100: #e8e8ed;
+  --color-neutral-50: #f5f5f7;
 
   --font-sans: var(--font-inter);
-  --font-display: var(--font-bebas);
+  --font-display: var(--font-satoshi);
   --font-mono: var(--font-geist-mono);
 
-  --shadow-soft: 0 1px 2px rgba(10, 31, 68, 0.06), 0 4px 16px rgba(10, 31, 68, 0.04);
-  --shadow-card: 0 1px 3px rgba(10, 31, 68, 0.08), 0 8px 32px rgba(10, 31, 68, 0.06);
-  --shadow-elevated: 0 2px 8px rgba(10, 31, 68, 0.14), 0 16px 48px rgba(10, 31, 68, 0.10);
+  --shadow-soft: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.08), 0 16px 48px rgba(0,0,0,0.06);
 }
 
-/* ── Base ── */
 :root {
   --background: #ffffff;
-  --foreground: var(--color-navy-900);
+  --foreground: var(--color-charcoal-900);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-
-::selection { background: var(--color-gold-500); color: var(--color-navy-900); }
+::selection { background: var(--color-red-500); color: white; }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold-500);
+  outline: 2px solid var(--color-red-500);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* ── Utility: visually hidden (screen reader only) ── */
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0;
   margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
