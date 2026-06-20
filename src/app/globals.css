@@ -1,46 +1,41 @@
 @import "tailwindcss";
 
-/* ── v3 Modern Palette (Charcoal + SCCS Red + White) ── */
+/* ── Dark Theme (Charcoal Black + SCCS Red) ── */
 @theme inline {
-  --color-charcoal-950: #0d0d0f;
-  --color-charcoal-900: #1c1c1e;
-  --color-charcoal-800: #2c2c2e;
-  --color-charcoal-700: #3a3a3c;
-  --color-charcoal-600: #48484a;
+  --color-bg-950: #08080a;
+  --color-bg-900: #0f0f12;
+  --color-bg-850: #141417;
+  --color-bg-800: #1a1a1e;
+  --color-bg-700: #25252a;
+  --color-bg-600: #303036;
 
   --color-red-600: #c41e3a;
   --color-red-500: #d42542;
   --color-red-400: #e04a5e;
+  --color-red-300: #ec7a8a;
 
-  --color-surface-50: #fafafa;
-  --color-surface-100: #f5f5f7;
-  --color-surface-200: #eeeef0;
+  --color-text-primary: #f5f5f7;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #6b6b75;
 
-  --color-neutral-900: #1d1d1f;
-  --color-neutral-700: #515154;
-  --color-neutral-500: #86868b;
-  --color-neutral-400: #aeaeb2;
-  --color-neutral-300: #c7c7cc;
-  --color-neutral-200: #dcdcde;
-  --color-neutral-100: #e8e8ed;
-  --color-neutral-50: #f5f5f7;
+  --color-border: rgba(255,255,255,0.06);
+  --color-border-hover: rgba(255,255,255,0.12);
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-satoshi);
   --font-mono: var(--font-geist-mono);
 
-  --shadow-soft: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
-  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.08), 0 16px 48px rgba(0,0,0,0.06);
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.5), 0 16px 48px rgba(0,0,0,0.4);
 
   --animate-fade-up: fade-up 0.6s ease-out both;
   --animate-fade-in: fade-in 0.5s ease-out both;
 }
 
-/* ── Base ── */
 :root {
-  --background: #ffffff;
-  --foreground: var(--color-charcoal-900);
+  --background: var(--color-bg-950);
+  --foreground: var(--color-text-primary);
 }
 
 body {
@@ -61,7 +56,7 @@ html { scroll-behavior: smooth; }
   border-radius: 4px;
 }
 
-/* ── Scroll reveal animations ── */
+/* ── Animations ── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -70,45 +65,29 @@ html { scroll-behavior: smooth; }
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-.animate-fade-up {
-  animation: fade-up 0.6s ease-out both;
-}
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out both;
-}
+.animate-fade-up { animation: fade-up 0.6s ease-out both; }
+.animate-fade-in { animation: fade-in 0.5s ease-out both; }
 .animate-delay-100 { animation-delay: 0.1s; }
 .animate-delay-200 { animation-delay: 0.2s; }
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up,
-  .animate-fade-in {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
+  .animate-fade-up, .animate-fade-in { animation: none; opacity: 1; transform: none; }
 }
 
-/* ── Utility ── */
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0;
   margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
   white-space: nowrap; border: 0;
 }
 
-/* ── Smooth hover scale ── */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
-/* ── Mobile tap highlight removal ── */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
+* { -webkit-tap-highlight-color: transparent; }
