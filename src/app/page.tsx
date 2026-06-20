@@ -6,6 +6,7 @@ import { TrustMarquee } from "@/components/TrustMarquee";
 import { WhoWeAre } from "@/components/WhoWeAre";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { ServicesGrid } from "@/components/ServicesGrid";
+import { ServiceAreaMap } from "@/components/ServiceAreaMap";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { FAQ } from "@/components/FAQ";
@@ -27,6 +28,7 @@ export default function Home() {
       <WhoWeAre />
       <BeforeAfter />
       <ServicesGrid />
+      <ServiceAreaMap />
       <ProjectGallery />
       <ReviewCarousel />
       <FAQ />
