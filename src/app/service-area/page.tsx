@@ -1,32 +1,18 @@
 import type { Metadata } from "next";
 import { CITIES } from "@/lib/content";
 import Link from "next/link";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { StickyCallFab } from "@/components/StickyCallFab";
 
-export const metadata: Metadata = {
-  title: "Service Area",
-  description: "SCCS NWI serves Porter, Lake, and La Porte counties in Northwest Indiana. Over 30 cities. Call (219) 464-2000.",
-};
+export const metadata: Metadata = { title: "Service Area" };
 
-export default function ServiceAreaPage() {
-  return (
-    <>
-      <section className="bg-navy-950 text-white pt-32 pb-24 md:pt-40 md:pb-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">Service area</h1>
-          <p className="mt-6 text-lg text-white/60 max-w-xl">Serving Porter, Lake, and La Porte counties across Northwest Indiana.</p>
-        </div>
-      </section>
-      <section className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {CITIES.map((city) => (
-              <Link key={city.slug} href={`/${city.slug}`} className="px-4 py-3 rounded-xl bg-white shadow-soft text-sm font-medium text-navy-950 hover:text-safety-500 hover:shadow-card transition-all">
-                {city.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  );
+export default function Page() {
+  return (<>
+    <Navbar /><main>
+      <section className="pt-32 pb-20 md:pt-44 md:pb-28"><div className="max-w-7xl mx-auto px-6"><span className="text-xs tracking-[0.15em] uppercase text-red-400 font-semibold">Where We Work</span><h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-display tracking-tight text-white">Service Area</h1><p className="mt-6 text-text-secondary max-w-xl">Serving Porter, Lake, and La Porte counties across Northwest Indiana.</p></div></section>
+      <section className="pb-24 md:pb-32"><div className="max-w-7xl mx-auto px-6"><div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">{CITIES.map(c => <Link key={c.slug} href={`/${c.slug}`} className="px-4 py-3 rounded-xl bg-bg-800 border border-border text-sm text-text-secondary hover:text-white hover:border-white/20 transition-all">{c.name}</Link>)}</div></div></section>
+    </main>
+    <Footer /><StickyCallFab />
+  </>);
 }
