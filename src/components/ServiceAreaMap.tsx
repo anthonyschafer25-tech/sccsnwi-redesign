@@ -10,26 +10,25 @@ export function ServiceAreaMap() {
           <p className="mt-4 text-text-secondary max-w-lg mx-auto">Over 30 cities across Northwest Indiana. If you are in NWI, we are nearby.</p>
         </div>
 
-        {/* Google Maps satellite view — centered on Valparaiso, IN */}
-        <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border shadow-elevated">
+        {/* Static satellite map — no interaction, no Google Maps link */}
+        <div className="max-w-4xl mx-auto rounded overflow-hidden border border-border shadow-elevated">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191209.0982956152!2d-87.21279952089845!3d41.4749386840326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8811a54c7b85cdeb%3A0x504c8573e4b6f120!2sValparaiso%2C%20IN!5e1!3m2!1sen!2sus!4v1!5m1!1e3"
             width="100%"
             height="480"
-            style={{ border: 0 }}
-            allowFullScreen
+            style={{ border: 0, pointerEvents: "none" }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="SCCS NWI Service Area"
+            title="SCCS NWI Service Area — Porter, Lake, and La Porte Counties"
             className="w-full"
           />
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-2">
           {["Valparaiso","Portage","Chesterton","Michigan City","Crown Point","Merrillville","Hobart","Gary","La Porte","Hammond","Munster","Schererville","Saint John","Lowell","Cedar Lake"].map(city => (
-            <a key={city} href={`/${city.toLowerCase().replace(/\s+/g,"-")}`} className="px-3 py-1.5 rounded-lg border border-border text-xs text-text-secondary hover:text-white hover:border-white/20 hover:bg-white/5 transition-all">{city}</a>
+            <a key={city} href={`/${city.toLowerCase().replace(/\s+/g,"-")}`} className="px-3 py-1.5 rounded border border-border text-xs text-text-secondary hover:text-white hover:border-white/20 hover:bg-white/5 transition-all">{city}</a>
           ))}
-          <a href="/service-area" className="px-3 py-1.5 rounded-lg bg-white/10 text-xs text-white font-medium hover:bg-white/15 transition-all">+ 15 more</a>
+          <a href="/service-area" className="px-3 py-1.5 rounded bg-white/10 text-xs text-white font-medium hover:bg-white/15 transition-all">+ 15 more</a>
         </div>
       </div>
     </section>

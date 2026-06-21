@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Geist_Mono } from "next/font/google";
+import { Inter, Bebas_Neue, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400","500","600","700","800"] });
-const outfit = Outfit({ variable: "--font-satoshi", subsets: ["latin"], weight: ["400","500","600","700","800"] });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400","500","600","700","800","900"] });
+const bebas = Bebas_Neue({ variable: "--font-bebas", subsets: ["latin"], weight: ["400"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${bebas.variable} ${geistMono.variable} antialiased`}>
       <body className="min-h-screen flex flex-col bg-bg-950 text-text-primary font-sans">
         <main className="flex-1 overflow-x-hidden w-full max-w-full">{children}</main>
       </body>
